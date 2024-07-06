@@ -237,6 +237,21 @@ files:
           }
       }
     learner_created: false
+  - name: src/lastpencil/notes.txt
+    visible: true
+    learner_created: true
+  - name: src/lastpencil/GameManager.java
+    visible: true
+    learner_created: true
+  - name: src/lastpencil/PrintToConsole.java
+    visible: true
+    learner_created: true
+  - name: src/lastpencil/UserInputManager.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/28000#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 06 Jul 2024 09:15:51 UTC"
 record: -1

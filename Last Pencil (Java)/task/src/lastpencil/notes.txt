@@ -1,0 +1,5 @@
+I need to create a:
+- Loop where each player takes turns removing pencils until 0 pencils remain
+- Each iteration prints two lines. Lines with number of pencils and who's turn it is
+- If there are no pencils left after a player's move, the loop breaks and the game ends without any
+additional output
