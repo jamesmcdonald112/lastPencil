@@ -312,6 +312,174 @@ files:
           }
       }
     learner_created: false
+  - name: src/lastpencil/UserInputManager.java
+    visible: true
+    text: |
+      package lastpencil;
+      
+      import java.util.Scanner;
+      
+      public class UserInputManager {
+          // INSTANCE VARIABLES
+          private static Scanner s = new Scanner(System.in);
+      
+          /**
+           * Prompts the user for the number of pencils they would like to use.
+           * @return The number of pencils as an int
+           */
+          public static int promptNumberOfPencils() {
+              // Input for the number of pencils
+              System.out.println("How many pencils would you like to use:");
+              int numberOfPencils = s.nextInt();
+              s.nextLine(); // consume token
+      
+              return numberOfPencils;
+          }
+      
+          /**
+           * Prompt the user to select the first player.
+           *
+           * @param player1 The first player
+           * @param player2 The second player
+           * @return
+           */
+          public static String promptFirstPlayer(String player1, String player2) {
+              System.out.println("Who will be the first (" + player1 + ", " + player2 + "):");
+              return s.nextLine();
+          }
+      
+          /**
+           * Prompt the user for the amount of pencils to remove
+           * @return The amount of pencils to remove as an int
+           */
+          public static int promptAmountOfPencilsToRemove() {
+              //TODO: Add this line back in at the end
+      //        System.out.println("How many pencils would you like to remove?");
+              return s.nextInt();
+          }
+      }
+    learner_created: true
+  - name: src/lastpencil/GameManager.java
+    visible: true
+    text: |
+      package lastpencil;
+      
+      public class GameManager {
+          // INSTANCE VARIABLES
+          private static String currentPlayer;
+          private static int totalPencils;
+      
+          // GETTERS AND SETTERS
+          public static String getCurrentPlayer() {
+              return currentPlayer;
+          }
+      
+          public static void setCurrentPlayer(String currentPlayer) {
+              GameManager.currentPlayer = currentPlayer;
+          }
+      
+          public static int getTotalPencils() {
+              return totalPencils;
+          }
+      
+          public static void setTotalPencils(int totalPencils) {
+              GameManager.totalPencils = totalPencils;
+          }
+      
+          public static void playGame() {
+              // Ask the user for the number of pencils and set them
+              int numberOfPencils = UserInputManager.promptNumberOfPencils();
+              setTotalPencils(numberOfPencils);
+      
+              // Choice of names
+              String name1 = "John";
+              String name2 = "Jack";
+      
+              // Prompt for first player and set to the current player
+              String firstPlayer = UserInputManager.promptFirstPlayer(name1, name2);
+              setCurrentPlayer(firstPlayer);
+      
+              // Game loop
+              while (totalPencils > 0) {
+                  // Print pencils and the first player
+                  PrintToConsole.printPencils(totalPencils);
+                  PrintToConsole.printCurrentPlayersTurn(currentPlayer);
+      
+                  // Get the amount of pencils to remove
+                  int numberOfPencilsToRemove = UserInputManager.promptAmountOfPencilsToRemove();
+                  removePencils(numberOfPencilsToRemove);
+      
+                  // Switch player
+                  switchCurrentPlayer(name1, name2);
+              }
+          }
+      
+          /**
+           * Takes in an amount of pencils and removes it from the total pencils.
+           *
+           * @param amount The amount to be subtracted
+           */
+          private static void removePencils(int amount) {
+              setTotalPencils(totalPencils -= amount);
+          }
+      
+          /**
+           * Switches from player1 to player 2
+           * @param player1 The first players name
+           * @param player2 The second players name
+           */
+          private static void switchCurrentPlayer(String player1, String player2) {
+              currentPlayer = (currentPlayer.equals(player1)) ? player2 : player1;
+          }
+      }
+    learner_created: true
+  - name: src/lastpencil/PrintToConsole.java
+    visible: true
+    text: |
+      package lastpencil;
+      
+      public class PrintToConsole {
+          /**
+           * Takes in an amount of pencils to print to the screen and uses '|' to represent them.
+           * @param amount Total pencils to be printed
+           */
+          public static void printPencils(int amount) {
+              StringBuilder totalPencils = new StringBuilder();
+              for (int pencil = 0; pencil < amount; pencil++) {
+                  totalPencils.append("|");
+              }
+      
+              System.out.println(totalPencils);
+          }
+      
+          /**
+           * Takes in a name and prints it to the console along with a message notifying the user it is
+           * their turn
+           * @param currentPlayer The name to be printed to the console
+           */
+          public static void printCurrentPlayersTurn(String currentPlayer) {
+              System.out.println(currentPlayer + "'s turn:");
+          }
+      }
+    learner_created: true
+  - name: src/lastpencil/notes.txt
+    visible: true
+    text: |-
+      I need to create a:
+      - Loop where each player takes turns removing pencils until 0 pencils remain
+      - Each iteration prints two lines. Lines with number of pencils and who's turn it is
+      - If there are no pencils left after a player's move, the loop breaks and the game ends without any
+      additional output
+    learner_created: true
+  - name: src/lastpencil/GameRulesManager.java
+    visible: true
+    learner_created: true
+  - name: src/lastpencil/PencilManager.java
+    visible: true
+    learner_created: true
+  - name: src/lastpencil/conclusion
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/28001#comment
 status: Unchecked
 record: -1

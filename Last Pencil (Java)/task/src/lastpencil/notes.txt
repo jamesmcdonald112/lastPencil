@@ -1,5 +1,19 @@
-I need to create a:
-- Loop where each player takes turns removing pencils until 0 pencils remain
-- Each iteration prints two lines. Lines with number of pencils and who's turn it is
-- If there are no pencils left after a player's move, the loop breaks and the game ends without any
-additional output
+First validate input
+- "The number of pencils should be numeric" this includes minus numbers, as minus is not a number.
+So positive numbers only.
+- The number of pencils must be greater than 0 - "The number of pencils should be positive"
+
+Validate name
+- The user must choose between name1 and name2 - "Choose between *Name1* and *Name2*"
+
+Validate amount of pencils that can be removed
+- Cannot remove moe than 3 at a time, so players can only remove 1, 2, or 3 pencils in a turn
+"Possible values: '1', '2' or '3'"
+- If a player takes more pencils than available - "Too many pencils were taken"
+
+
+
+
+
+The user selects how many pencils in the game.
+I need something that will make sure that it is a integer input first

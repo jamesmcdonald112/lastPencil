@@ -22,4 +22,5 @@ public class PrintToConsole {
     public static void printCurrentPlayersTurn(String currentPlayer) {
         System.out.println(currentPlayer + "'s turn:");
     }
+
 }

@@ -4,6 +4,9 @@ public class GameManager {
     // INSTANCE VARIABLES
     private static String currentPlayer;
     private static int totalPencils;
+    // Choice of names
+    private static String name1 = "John";
+    private static String name2 = "Jack";
 
     // GETTERS AND SETTERS
     public static String getCurrentPlayer() {
@@ -22,32 +25,38 @@ public class GameManager {
         GameManager.totalPencils = totalPencils;
     }
 
+    public static String getName1() {
+        return name1;
+    }
+
+    public static void setName1(String name1) {
+        GameManager.name1 = name1;
+    }
+
+    public static String getName2() {
+        return name2;
+    }
+
+    public static void setName2(String name2) {
+        GameManager.name2 = name2;
+    }
+
     public static void playGame() {
         // Ask the user for the number of pencils and set them
-        int numberOfPencils = UserInputManager.promptNumberOfPencils();
-        setTotalPencils(numberOfPencils);
+        System.out.println("How many pencils would you like to use:");
+        setTotalPencils(PencilManager.getValidPencilAmount());
+        System.out.println("Total pencils: " + totalPencils);
 
-        // Choice of names
-        String name1 = "John";
-        String name2 = "Jack";
 
-        // Prompt for first player and set to the current player
-        String firstPlayer = UserInputManager.promptFirstPlayer(name1, name2);
-        setCurrentPlayer(firstPlayer);
 
-        // Game loop
-        while (totalPencils > 0) {
-            // Print pencils and the first player
-            PrintToConsole.printPencils(totalPencils);
-            PrintToConsole.printCurrentPlayersTurn(currentPlayer);
 
-            // Get the amount of pencils to remove
-            int numberOfPencilsToRemove = UserInputManager.promptAmountOfPencilsToRemove();
-            removePencils(numberOfPencilsToRemove);
+        // User enters an amount
+        System.out.println("The user eneters an amount. If it is correct, meaning it is positive " +
+                "and a number, it will be set. If it is not, the user will be notified and asked " +
+                "to enter again.");
 
-            // Switch player
-            switchCurrentPlayer(name1, name2);
-        }
+        UserInputManager.closeScanner();
+
     }
 
     /**
