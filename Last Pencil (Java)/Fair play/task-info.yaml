@@ -480,6 +480,9 @@ files:
   - name: src/lastpencil/conclusion
     visible: true
     learner_created: true
+  - name: src/lastpencil/PlayerManager.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/28001#comment
 status: Unchecked
 record: -1

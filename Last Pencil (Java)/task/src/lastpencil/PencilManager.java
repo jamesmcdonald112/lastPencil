@@ -1,10 +1,24 @@
 package lastpencil;
 
-import java.util.InputMismatchException;
-
 public class PencilManager {
 
-    public static int getValidPencilAmount() {
+    // INSTANCE VARIABLES
+    private static int totalPencils;
+
+    public static int getTotalPencils() {
+        return totalPencils;
+    }
+
+    public static void setTotalPencils(int totalPencils) {
+        PencilManager.totalPencils = totalPencils;
+    }
+
+    /**
+     * Gets a validates the amount of pencils from the user.
+     *
+     * @return The number of pencils for the game as an int.
+     */
+    public static void setValidPencilAmount() {
         int pencilAmount = -1;
         boolean running = true;
         while (running){
@@ -18,7 +32,16 @@ public class PencilManager {
             }
             running = false;
         }
-        return pencilAmount;
+        totalPencils = pencilAmount;
+    }
+
+    /**
+     * Takes in an amount of pencils and removes it from the total pencils.
+     *
+     * @param amount The amount to be subtracted
+     */
+    public static void removePencils(int amount) {
+        totalPencils -= amount;
     }
 
     /**
