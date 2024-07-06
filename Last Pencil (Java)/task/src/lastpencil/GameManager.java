@@ -11,14 +11,34 @@ public class GameManager {
         System.out.println("Who will be the first (" + PlayerManager.getName1() + ", " + PlayerManager.getName2() + "):");
         PlayerManager.setFirstPlayer();
 
-        // Print total pencils
-        PrintToConsole.printPencils();
-        PrintToConsole.printCurrentPlayersTurn();
+        // Game Loop
+        while (true) {
+            // Print total pencils
+            PrintToConsole.printPencils();
+            PrintToConsole.printCurrentPlayersTurn();
+
+            // Get User input for number of pencils to remove
+            PencilManager.removePencilManager();
+
+            // Analyse game
+            if (isWinner()) {
+                PrintToConsole.printWinner();
+                break;
+            }
+            // Switch player
+            PlayerManager.switchCurrentPlayer();
+
+        }
+
 
 
         // Close Scanner
         UserInputManager.closeScanner();
 
+    }
+
+    private static boolean isWinner() {
+        return PencilManager.getTotalPencils() <=0;
     }
 
 }

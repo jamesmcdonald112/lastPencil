@@ -24,6 +24,7 @@ public class PencilManager {
         while (running){
             String userInput = UserInputManager.getUserInput();
             if (!isANumber(userInput)) {
+                System.out.println("The number of pencils should be numeric");
                 continue;
             }
             pencilAmount = Integer.parseInt(userInput);
@@ -36,12 +37,59 @@ public class PencilManager {
     }
 
     /**
+     * Gets the amount of pencils to be removed from the user, validates the value, and removes
+     * the value from the total pencils
+     */
+    public static void removePencilManager() {
+        String userInput;
+        while (true) {
+            // Get user Input
+            userInput = UserInputManager.getUserInput();
+
+            // Check that it is a number
+            if (!isANumber(userInput)) {
+                System.out.println("Possible values: '1', '2', '3'");
+                continue;
+            }
+
+            int pencilValue = Integer.parseInt(userInput);
+            // Check if the pencil value is in the correct range and not more than total pencils
+            // left
+            if (isValidPencilValue(pencilValue)) {
+                // If it passes all tests, then remove pencils
+                removePencils(pencilValue);
+                break;
+            }
+
+
+        }
+
+    }
+
+    /**
      * Takes in an amount of pencils and removes it from the total pencils.
      *
      * @param amount The amount to be subtracted
      */
-    public static void removePencils(int amount) {
+    private static void removePencils(int amount) {
         totalPencils -= amount;
+    }
+
+    /**
+     * Makes the sure value is between 1 and 3 and notifies the user if it is not.
+     * @param value
+     * @return
+     */
+    private static boolean isValidPencilValue(int value) {
+        if (value < 1 || value > 3) {
+            System.out.println("Possible values: '1', '2', '3'");
+            return false;
+        } else if (totalPencils - value < 0) {
+            System.out.println("Too many pencils were taken");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -54,7 +102,6 @@ public class PencilManager {
         try {
             Integer.parseInt(input);
         }catch (NumberFormatException e) {
-            System.err.println("The number of pencils should be numeric");
             return false;
         }
         return true;
@@ -68,7 +115,7 @@ public class PencilManager {
     private static boolean isValidPencilAmount(int numberOfPencils) {
         // Pencils must be a numeric value
         if (numberOfPencils <= 0) {
-            System.err.println("The number of pencils should be positive");
+            System.out.println("The number of pencils should be positive");
             return false;
         }
         return true;

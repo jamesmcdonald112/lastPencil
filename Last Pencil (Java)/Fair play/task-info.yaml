@@ -471,9 +471,6 @@ files:
       - If there are no pencils left after a player's move, the loop breaks and the game ends without any
       additional output
     learner_created: true
-  - name: src/lastpencil/GameRulesManager.java
-    visible: true
-    learner_created: true
   - name: src/lastpencil/PencilManager.java
     visible: true
     learner_created: true
@@ -484,5 +481,8 @@ files:
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/28001#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 06 Jul 2024 15:17:17 UTC"
 record: -1

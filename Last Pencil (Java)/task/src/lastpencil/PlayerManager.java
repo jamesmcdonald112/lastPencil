@@ -44,11 +44,9 @@ public class PlayerManager {
 
     /**
      * Switches from player1 to player 2
-     * @param player1 The first players name
-     * @param player2 The second players name
      */
-    private static void switchCurrentPlayer(String player1, String player2) {
-        currentPlayer = (currentPlayer.equals(player1)) ? player2 : player1;
+    public static void switchCurrentPlayer() {
+        currentPlayer = (currentPlayer.equals(name1)) ? name2 : name1;
     }
 
     /**

@@ -18,10 +18,18 @@ public class PrintToConsole {
     /**
      * Takes in a name and prints it to the console along with a message notifying the user it is
      * their turn
-     * @param currentPlayer The name to be printed to the console
      */
     public static void printCurrentPlayersTurn() {
-        System.out.println(PlayerManager.getCurrentPlayer() + "'s turn:");
+        System.out.println(PlayerManager.getCurrentPlayer() + "'s turn");
+    }
+
+    /**
+     * Prints the winner to the screen
+     */
+    public static void printWinner() {
+        // Last player to take the pencil looses so you must swap to the other player
+        PlayerManager.switchCurrentPlayer();
+        System.out.println(PlayerManager.getCurrentPlayer() + " won!");
     }
 
 }
