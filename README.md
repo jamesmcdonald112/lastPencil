@@ -5,6 +5,11 @@ The player forced to take the last pencil loses the game. This project includes 
 ## How to Run
 - Clone the repository or download the project files to your local machine.
 - Open a terminal and navigate to the project directory.
+
+```bash
+cd Last\ Pencil\ \(Java\)/task/src/
+```
+
 - Compile the Java files using the following command:
 
 ```bash
