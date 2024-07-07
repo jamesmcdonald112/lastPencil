@@ -17,6 +17,9 @@ public class UserInputManager {
         return userInput;
     }
 
+    /**
+     * Closes the scanner
+     */
     public static void closeScanner() {
         s.close();
     }

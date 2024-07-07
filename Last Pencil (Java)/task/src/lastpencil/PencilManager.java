@@ -71,7 +71,7 @@ public class PencilManager {
      *
      * @param amount The amount to be subtracted
      */
-    private static void removePencils(int amount) {
+    protected static void removePencils(int amount) {
         totalPencils -= amount;
     }
 

@@ -30,6 +30,9 @@ public class PlayerManager {
         PlayerManager.currentPlayer = currentPlayer;
     }
 
+    /**
+     * Gets the user to select the first player.
+     */
     public static void setFirstPlayer() {
         boolean running = true;
         while (running) {
